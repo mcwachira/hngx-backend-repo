@@ -9,7 +9,7 @@ app.get('/api', (req, res) => {
 
 	const now = new Date();
 	const dayOfWeek = now.toLocaleString('en-US', { weekday: 'long' });
-	const utcTime = now.toISOString();
+	const Time = now.toISOString();
 
 	// Github URLs
 	const githubUrlFile = "https://github.com/mcwachira/hngx-backend-repo/blob/main/index.js";
@@ -25,11 +25,11 @@ app.get('/api', (req, res) => {
 	const response = {
 		slack_name: slackName,
 		day_of_week: dayOfWeek,
-		utc_time: utcTime,
+		utc_time: Time,
 		track: track,
-		github_url_file: githubUrlFile,
-		github_url_source: githubUrlSource,
-		status: 'Success',
+		github_file_url: githubUrlFile,
+		github_repo_url: githubUrlSource,
+		status: 200,
 	};
 
 		res.json(response);
