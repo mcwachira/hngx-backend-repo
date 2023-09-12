@@ -7,25 +7,19 @@ app.get('/api', (req, res) => {
 	const slackName = req.query.slack_name || 'wachira 100';
 	const track = req.query.track || 'Backend';
 
-	const now = new Date();
-	const dayOfWeek = now.toLocaleString('en-US', { weekday: 'long' });
-	const Time = now.toISOString();
+   const dayOfWeek = moment().tz("UTC").format("dddd");
+    const currentUTCtime = moment().tz('UTC').format("YYYY-MM-DDTHH:mm:ss[Z]")
 
 	// Github URLs
 	const githubUrlFile = "https://github.com/mcwachira/hngx-backend-repo/blob/main/index.js";
 	const githubUrlSource = "https://github.com/mcwachira/hngx-backend-repo";
 
-	// Validate UTC time within +/- 2 hours
-	const currentTime = now.getTime();
-	const utcOffset = now.getTimezoneOffset();
-	if (Math.abs(utcOffset) > 120) {
-		return res.status(400).json({ status: 'Error', message: 'UTC time is not within +/- 2 hours' });
-	}
+	
 
 	const response = {
 		slack_name: slackName,
 		current_day: dayOfWeek,
-		utc_time: Time,
+		utc_time: currentUTCtime,
 		track: track,
 		github_file_url: githubUrlFile,
 		github_repo_url: githubUrlSource,
