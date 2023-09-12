@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080; // Use port 8080 by default
 
-app.get('/info', (req, res) => {
+app.get('/api', (req, res) => {
 	// Retrieve two GET request parameters: slack_name and track
 	const slackName = req.query.slack_name || 'wachira 100';
 	const track = req.query.track || 'Backend';
