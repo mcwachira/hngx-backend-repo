@@ -24,7 +24,7 @@ app.get('/api', (req, res) => {
 
 	const response = {
 		slack_name: slackName,
-		day_of_week: dayOfWeek,
+		current_day: dayOfWeek,
 		utc_time: Time,
 		track: track,
 		github_file_url: githubUrlFile,
