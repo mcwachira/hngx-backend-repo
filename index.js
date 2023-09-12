@@ -12,8 +12,8 @@ app.get('/info', (req, res) => {
 	const utcTime = now.toISOString();
 
 	// Github URLs
-	const githubUrlFile = '';
-	const githubUrlSource = '';
+	const githubUrlFile = "https://github.com/mcwachira/hngx-backend-repo/blob/main/index.js";
+	const githubUrlSource = "https://github.com/mcwachira/hngx-backend-repo";
 
 	// Validate UTC time within +/- 2 hours
 	const currentTime = now.getTime();
